@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sherry Studio | การตลาดดิจิทัลและงานครีเอทีฟ</title>
+<meta name="description" content="Sherry Studio รับทำคอนเทนต์ กราฟิก วิดีโอ และดูแล Meta Ads เริ่มต้น 1,990 บาทต่อเดือน">
+<link rel="icon" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600&family=IBM+Plex+Sans+Thai:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--red:#b0121f;--red-deep:#6e0710;--ink:#171214;--mute:#6b6064;--paper:#fdfbfb;--line:#e9dfe0;--tint:#f7eced}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:"IBM Plex Sans Thai",sans-serif;font-weight:300;color:var(--ink);background:var(--paper);line-height:1.7;font-size:17px}
+h1,h2,h3,.price{font-family:Prompt,sans-serif;font-weight:500;line-height:1.25}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+
+/* nav */
+header{position:sticky;top:0;z-index:10;background:rgba(253,251,251,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.brand{font-family:Prompt;font-weight:600;letter-spacing:.14em;text-decoration:none}
+nav a{margin-left:24px;text-decoration:none;font-size:15px;color:var(--mute)}
+nav a:hover{color:var(--red)}
+
+/* hero */
+.hero{position:relative;overflow:hidden;padding:56px 0 72px}
+.hero::before,.hero::after{content:"";position:absolute;border-radius:50%;background:linear-gradient(135deg,var(--red),var(--red-deep));z-index:0}
+.hero::before{width:420px;height:420px;left:-230px;top:-240px}
+.hero::after{width:520px;height:520px;right:-300px;bottom:-330px}
+.hero .wrap{position:relative;z-index:1;text-align:center}
+.hero img{width:min(460px,86vw);height:auto;display:block;margin:0 auto}
+.hero h1{font-size:clamp(26px,4.2vw,40px);margin-top:4px}
+.hero h1 span{color:var(--red)}
+.hero p{max-width:560px;margin:14px auto 0;color:var(--mute)}
+.btns{margin-top:28px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.btn{display:inline-block;padding:12px 28px;border-radius:999px;font-family:Prompt;font-weight:500;font-size:16px;text-decoration:none;border:1.5px solid var(--red);transition:background .2s,color .2s}
+.btn.solid{background:var(--red);color:#fff}
+.btn.solid:hover{background:var(--red-deep);border-color:var(--red-deep)}
+.btn.ghost{color:var(--red)}
+.btn.ghost:hover{background:var(--tint)}
+
+section{padding:76px 0}
+section h2{font-size:clamp(24px,3.4vw,32px);margin-bottom:10px}
+.lead{color:var(--mute);max-width:560px}
+
+/* services: one ruled list, not cards */
+.services ul{list-style:none;padding:0;margin-top:34px;border-top:1px solid var(--line)}
+.services li{display:grid;grid-template-columns:230px 1fr;gap:24px;padding:20px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.services h3{font-size:19px;color:var(--red)}
+.services p{color:var(--mute)}
+
+/* pricing */
+.pricing{background:var(--tint)}
+.plans{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:38px;align-items:stretch}
+.plan{background:#fff;border:1px solid var(--line);border-radius:6px;padding:30px 26px;display:flex;flex-direction:column}
+.plan.rec{background:linear-gradient(160deg,var(--red),var(--red-deep));color:#fff;border-color:transparent;transform:translateY(-12px);box-shadow:0 18px 40px -18px rgba(110,7,16,.6)}
+.plan h3{font-size:20px}
+.tag{display:inline-block;margin-left:8px;padding:1px 12px;border-radius:999px;background:#fff;color:var(--red);font-size:13px;vertical-align:middle}
+.sub{font-size:14px;opacity:.75}
+.price{font-size:40px;margin:14px 0 0}
+.price small{font-size:16px;font-weight:400;margin-left:4px}
+.per{font-size:14px;opacity:.75;margin-bottom:18px}
+.plan ul{list-style:none;padding:0;border-top:1px solid currentColor;border-top-color:rgba(127,127,127,.28);flex:1}
+.plan li{padding:9px 0 9px 26px;position:relative;border-bottom:1px solid rgba(127,127,127,.18);font-size:16px}
+.plan li::before{content:"";position:absolute;left:3px;top:17px;width:10px;height:6px;border-left:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(-45deg)}
+.plan.rec li::before{border-color:#fff}
+.fit{margin:16px 0 20px;font-size:15px;opacity:.85}
+.plan .btn{text-align:center}
+.plan.rec .btn{background:#fff;color:var(--red);border-color:#fff}
+.deal{margin-top:34px;padding:16px 22px;border-left:4px solid var(--red);background:#fff;max-width:640px}
+.deal b{font-family:Prompt;color:var(--red);font-weight:500}
+
+/* contact */
+.contact .box{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.contact dl{display:grid;grid-template-columns:90px 1fr;gap:10px 16px}
+.contact dt{color:var(--mute)}
+.contact dd{font-family:Prompt}
+footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-size:14px;color:var(--mute)}
+
+@media(max-width:860px){
+ .plans{grid-template-columns:1fr}
+ .plan.rec{transform:none}
+ .services li{grid-template-columns:1fr;gap:4px}
+ .contact .box{grid-template-columns:1fr}
+ nav a:not(:last-child){display:none}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
+
+/* portfolio */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:28px 0 26px}
+.filters button{font:500 15px Prompt,sans-serif;padding:8px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;color:var(--mute);cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;align-items:start}
+.work{margin:0}
+.work[hidden]{display:none}
+.shot{position:relative;border-radius:6px;overflow:hidden;background-size:cover;background-position:center;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;color:#fff;min-height:240px}
+.shot.g1{background-color:var(--red);background-image:linear-gradient(160deg,#c8202e,#6e0710);aspect-ratio:4/5}
+.shot.g2{background-color:#fff;color:var(--ink);border:1px solid var(--line);aspect-ratio:4/5}
+.shot.g2 b{color:var(--red)}
+.shot.v1{background-image:linear-gradient(180deg,#2a1114,#8f1019);aspect-ratio:9/14}
+.shot.v2{background-image:linear-gradient(200deg,#171214,#b0121f);aspect-ratio:9/14}
+.shot.a1{background-image:linear-gradient(140deg,#f7eced,#e9b6ba);color:var(--ink);aspect-ratio:1/1}
+.shot.a2{background-image:linear-gradient(140deg,#b0121f,#171214);aspect-ratio:1/1}
+.shot b{font:600 clamp(20px,2.4vw,26px)/1.3 Prompt,sans-serif;display:block}
+.shot span{font-size:14px;opacity:.85}
+.play{position:absolute;top:18px;right:18px;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,.92)}
+.play::after{content:"";position:absolute;left:16px;top:12px;border-left:14px solid var(--red);border-top:9px solid transparent;border-bottom:9px solid transparent}
+.work figcaption{padding:10px 2px 0;font-size:15px;color:var(--mute)}
+.note{margin-top:22px;font-size:14px;color:var(--mute)}
+
+/* process */
+.steps{list-style:none;padding:0;margin-top:34px;display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+.steps li{counter-increment:s;padding:0 22px 0 0;border-top:3px solid var(--red);padding-top:16px}
+.steps li::before{content:counter(s);font:600 15px Prompt;color:var(--red);display:block;margin-bottom:4px}
+.steps h3{font-size:18px;margin-bottom:4px}
+.steps p{font-size:15px;color:var(--mute)}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:16px 0;max-width:760px}
+.faq details:first-of-type{border-top:1px solid var(--line);margin-top:30px}
+.faq summary{cursor:pointer;font:500 18px Prompt,sans-serif;list-style:none;display:flex;justify-content:space-between;gap:16px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--red);font-size:24px;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq p{margin-top:10px;color:var(--mute)}
+
+/* floating line */
+.fab{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--red);color:#fff;text-decoration:none;font:500 15px Prompt;padding:12px 22px;border-radius:999px;box-shadow:0 10px 26px -10px rgba(110,7,16,.7)}
+@media(max-width:860px){.works{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr;gap:26px 0}}
+@media(max-width:520px){.works{grid-template-columns:1fr}.steps{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <a class="brand" href="#top">SHERRY STUDIO</a>
+ <nav><a href="#services">บริการ</a><a href="#works">ผลงาน</a><a href="#pricing">แพ็กเกจ</a><a href="#faq">คำถาม</a><a href="#contact">ติดต่อ</a></nav>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="wrap">
+ <img src="logo.jpg" alt="Sherry Studio - Digital Marketing &amp; Creative">
+ <h1>ให้ธุรกิจของคุณเติบโต <span>ไปกับ Sherry</span></h1>
+ <p>ครบจบในที่เดียว ตั้งแต่วางแผนคอนเทนต์ ออกแบบกราฟิก ตัดต่อวิดีโอ ไปจนถึงยิงโฆษณา Meta Ads</p>
+ <div class="btns">
+  <a class="btn solid" href="#pricing">ดูแพ็กเกจ</a>
+  <a class="btn ghost" href="#contact">สอบถามราคา</a>
+ </div>
+</div></div>
+
+<section class="services" id="services"><div class="wrap">
+ <h2>บริการของเรา</h2>
+ <p class="lead">เลือกใช้เฉพาะงานที่ต้องการ หรือรวมเป็นแพ็กเกจรายเดือนก็ได้</p>
+ <ul>
+  <li><h3>Meta Ads Management</h3><p>ตั้งค่าและดูแลแคมเปญโฆษณาบน Facebook และ Instagram พร้อมสรุปผลทุกเดือน</p></li>
+  <li><h3>Content Creation</h3><p>คิดหัวข้อ เขียนแคปชั่น และวางแผนคอนเทนต์ให้ตรงกับลูกค้าของคุณ</p></li>
+  <li><h3>Video Editing</h3><p>ตัดต่อวิดีโอสั้นสำหรับ Reels, TikTok และ Shorts</p></li>
+  <li><h3>Graphic Design</h3><p>ออกแบบภาพโพสต์และสื่อโฆษณาให้เป็นสไตล์เดียวกับแบรนด์</p></li>
+  <li><h3>Social Media Strategy</h3><p>วางทิศทางและแผนรายเดือน เพื่อให้เพจโตอย่างต่อเนื่อง</p></li>
+ </ul>
+</div></section>
+
+
+<section id="works"><div class="wrap">
+ <h2>ตัวอย่างผลงาน</h2>
+ <p class="lead">ภาพกราฟิก วิดีโอสั้น และโฆษณาที่เราทำให้ธุรกิจหลากหลายประเภท</p>
+ <div class="filters" role="group" aria-label="กรองผลงาน">
+  <button aria-pressed="true" data-f="all">ทั้งหมด</button>
+  <button aria-pressed="false" data-f="graphic">กราฟิก</button>
+  <button aria-pressed="false" data-f="video">วิดีโอ</button>
+  <button aria-pressed="false" data-f="ads">โฆษณา</button>
+ </div>
+ <div class="works">
+  <figure class="work" data-c="graphic"><div class="shot g1"><b>โปรโมชันเปิดร้าน ลด 20%</b><span>ภาพโพสต์ Facebook</span></div><figcaption>กราฟิก: โพสต์โปรโมชัน</figcaption></figure>
+  <figure class="work" data-c="video"><div class="shot v1"><i class="play"></i><b>รีวิวสินค้า 15 วินาที</b><span>Reels / TikTok</span></div><figcaption>วิดีโอ: คลิปรีวิวสินค้า</figcaption></figure>
+  <figure class="work" data-c="ads"><div class="shot a1"><b>ซื้อ 1 แถม 1 วันนี้เท่านั้น</b><span>โฆษณา Meta Ads</span></div><figcaption>โฆษณา: แคมเปญขายสินค้า</figcaption></figure>
+  <figure class="work" data-c="graphic"><div class="shot g2"><b>5 วิธี<br>ดูแลลูกค้าประจำ</b><span>ภาพความรู้ ชุด 5 สไลด์</span></div><figcaption>กราฟิก: คอนเทนต์ให้ความรู้</figcaption></figure>
+  <figure class="work" data-c="video"><div class="shot v2"><i class="play"></i><b>เบื้องหลังการทำงาน</b><span>วิดีโอสั้นแนวแนะนำร้าน</span></div><figcaption>วิดีโอ: แนะนำร้านและทีมงาน</figcaption></figure>
+  <figure class="work" data-c="ads"><div class="shot a2"><b>ทักแชทรับส่วนลดทันที</b><span>โฆษณาเก็บลูกค้าทักแชท</span></div><figcaption>โฆษณา: แคมเปญเก็บลูกค้าทักแชท</figcaption></figure>
+ </div>
+ <p class="note"><!-- TODO: เปลี่ยนเป็นผลงานจริง: ใส่ style="background-image:url(works/1.jpg)" ให้ div.shot แล้วลบข้อความในกรอบออก --> ภาพด้านบนเป็นตัวอย่างรูปแบบงาน ขอดูผลงานจริงของสายธุรกิจที่คุณสนใจได้ทางแชท</p>
+</div></section>
+
+<section class="pricing" id="pricing"><div class="wrap">
+ <h2>แพ็กเกจรายเดือน</h2>
+ <p class="lead">ราคาชัดเจน ไม่มีค่าใช้จ่ายแอบแฝง</p>
+ <div class="plans">
+
+  <article class="plan">
+   <h3>Starter</h3><div class="sub">Content</div>
+   <div class="price">1,990<small>บาท</small></div><div class="per">ต่อเดือน</div>
+   <ul>
+    <li>ภาพกราฟิก 4 ภาพ</li>
+    <li>แคปชั่น 4 โพสต์</li>
+    <li>วางหัวข้อคอนเทนต์เบื้องต้น</li>
+    <li>แก้ไข 1 ครั้งต่อชิ้น</li>
+   </ul>
+   <p class="fit">เหมาะกับร้านค้าเริ่มต้น</p>
+   <a class="btn ghost" href="#contact">เลือก Starter</a>
+  </article>
+
+  <article class="plan rec">
+   <h3>Growth<span class="tag">แนะนำ</span></h3><div class="sub">Content &amp; Video</div>
+   <div class="price">3,490<small>บาท</small></div><div class="per">ต่อเดือน</div>
+   <ul>
+    <li>ภาพกราฟิก 6 ภาพ</li>
+    <li>วิดีโอสั้น 2 คลิป</li>
+    <li>แคปชั่น 6 โพสต์</li>
+    <li>วางแผนคอนเทนต์รายเดือน</li>
+    <li>แก้ไข 1 ครั้งต่อชิ้น</li>
+   </ul>
+   <p class="fit">เหมาะกับธุรกิจที่ต้องการลงคอนเทนต์สม่ำเสมอ</p>
+   <a class="btn" href="#contact">เลือก Growth</a>
+  </article>
+
+  <article class="plan">
+   <h3>Premium</h3><div class="sub">Content &amp; Ads</div>
+   <div class="price">6,990<small>บาท</small></div><div class="per">ต่อเดือน</div>
+   <ul>
+    <li>ภาพกราฟิก 8 ภาพ</li>
+    <li>วิดีโอสั้น 4 คลิป</li>
+    <li>แคปชั่น 8 โพสต์</li>
+    <li>วางแผนคอนเทนต์</li>
+    <li>ดูแล Meta Ads 1 แคมเปญ</li>
+    <li>สรุปผลโฆษณารายเดือน</li>
+   </ul>
+   <p class="fit">เหมาะกับธุรกิจที่พร้อมทำการตลาดต่อเนื่อง</p>
+   <a class="btn ghost" href="#contact">เลือก Premium</a>
+  </article>
+ </div>
+ <p class="deal"><b>Premium ซื้อ 3 เดือนเพียง 17,000 บาท</b> จากปกติ 20,970 บาท</p>
+</div></section>
+
+
+<section id="process"><div class="wrap">
+ <h2>ขั้นตอนการทำงาน</h2>
+ <ol class="steps">
+  <li><h3>คุยโจทย์</h3><p>บอกธุรกิจ กลุ่มลูกค้า และเป้าหมายที่อยากได้</p></li>
+  <li><h3>เลือกแพ็กเกจและวางแผน</h3><p>เราส่งแผนคอนเทนต์ประจำเดือนให้ตรวจก่อนเริ่มงาน</p></li>
+  <li><h3>ผลิตและส่งงาน</h3><p>ส่งงานเป็นชุดตามกำหนด พร้อมให้แก้ไข 1 ครั้งต่อชิ้น</p></li>
+  <li><h3>สรุปผล</h3><p>แพ็กเกจ Premium มีรายงานผลโฆษณาทุกเดือน</p></li>
+ </ol>
+</div></section>
+
+<section class="faq" id="faq"><div class="wrap">
+ <h2>คำถามที่พบบ่อย</h2>
+ <details><summary>ต้องเซ็นสัญญาระยะยาวไหม</summary><p>ไม่ต้อง สมัครรายเดือนได้ ถ้าซื้อ Premium 3 เดือนจะได้ราคาพิเศษ 17,000 บาท</p></details>
+ <details><summary>งบโฆษณาอยู่ในราคาแพ็กเกจหรือเปล่า</summary><p>ราคาแพ็กเกจเป็นค่าบริการดูแลแคมเปญ ส่วนงบโฆษณาที่จ่ายให้ Meta ลูกค้าตั้งเองและจ่ายตรงกับ Meta</p></details>
+ <details><summary>ขอแก้งานได้กี่ครั้ง</summary><p>แก้ไขได้ 1 ครั้งต่อชิ้นงาน ถ้าต้องการแก้เพิ่มสามารถตกลงกันเป็นรายงานได้</p></details>
+ <details><summary>ไม่แน่ใจว่าควรเลือกแพ็กเกจไหน</summary><p>ร้านที่เพิ่งเริ่มแนะนำ Starter ถ้าต้องการลงคอนเทนต์สม่ำเสมอพร้อมวิดีโอแนะนำ Growth และถ้าพร้อมยิงโฆษณาด้วยเลือก Premium ทักแชทมาให้เราช่วยเลือกได้</p></details>
+</div></section>
+
+<section class="contact" id="contact"><div class="wrap box">
+ <div>
+  <h2>คุยกับเราได้เลย</h2>
+  <p class="lead">บอกประเภทธุรกิจและเป้าหมายสั้น ๆ เราจะแนะนำแพ็กเกจที่เหมาะให้</p>
+ </div>
+ <!-- TODO: แก้ข้อมูลติดต่อด้านล่างเป็นของจริง -->
+ <dl>
+  <dt>LINE</dt><dd>@your-line-id</dd>
+  <dt>Facebook</dt><dd>facebook.com/your-page</dd>
+  <dt>โทร</dt><dd>0XX-XXX-XXXX</dd>
+ </dl>
+</div></section>
+</main>
+<a class="fab" href="#contact">ทักสอบถาม</a>
+
+<footer>© 2026 Sherry Studio. Digital Marketing &amp; Creative</footer>
+<script>
+document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
+ document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+ const f=b.dataset.f;
+ document.querySelectorAll('.work').forEach(w=>w.hidden=!(f==='all'||w.dataset.c===f));
+}));
+</script>
+</body>
+</html>
