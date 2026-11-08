@@ -150,6 +150,15 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-si
  .hero-svc li:nth-child(4){border-left:0}
  .corner.tl{width:62vw}.corner.br{width:44vw}
 }
+
+.works{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+.work img,.work video{display:block;width:100%;height:auto;border-radius:6px;background:var(--ink)}
+.work img{cursor:zoom-in;border:1px solid var(--line)}
+.work video{max-height:560px}
+#lb{border:0;padding:0;background:transparent;max-width:94vw;max-height:94vh;overflow:visible}
+#lb::backdrop{background:rgba(23,18,20,.82)}
+#lb img{display:block;max-width:94vw;max-height:88vh;border-radius:6px}
+#lb button{position:absolute;top:-14px;right:-6px;width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:var(--red);font-size:24px;line-height:1;cursor:pointer}
 </style>
 </head>
 <body>
@@ -193,17 +202,15 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-si
   <button aria-pressed="true" data-f="all">ทั้งหมด</button>
   <button aria-pressed="false" data-f="graphic">กราฟิก</button>
   <button aria-pressed="false" data-f="video">วิดีโอ</button>
-  <button aria-pressed="false" data-f="ads">โฆษณา</button>
  </div>
  <div class="works">
-  <figure class="work" data-c="graphic"><div class="shot g1"><b>โปรโมชันเปิดร้าน ลด 20%</b><span>ภาพโพสต์ Facebook</span></div><figcaption>กราฟิก: โพสต์โปรโมชัน</figcaption></figure>
-  <figure class="work" data-c="video"><div class="shot v1"><i class="play"></i><b>รีวิวสินค้า 15 วินาที</b><span>Reels / TikTok</span></div><figcaption>วิดีโอ: คลิปรีวิวสินค้า</figcaption></figure>
-  <figure class="work" data-c="ads"><div class="shot a1"><b>ซื้อ 1 แถม 1 วันนี้เท่านั้น</b><span>โฆษณา Meta Ads</span></div><figcaption>โฆษณา: แคมเปญขายสินค้า</figcaption></figure>
-  <figure class="work" data-c="graphic"><div class="shot g2"><b>5 วิธี<br>ดูแลลูกค้าประจำ</b><span>ภาพความรู้ ชุด 5 สไลด์</span></div><figcaption>กราฟิก: คอนเทนต์ให้ความรู้</figcaption></figure>
-  <figure class="work" data-c="video"><div class="shot v2"><i class="play"></i><b>เบื้องหลังการทำงาน</b><span>วิดีโอสั้นแนวแนะนำร้าน</span></div><figcaption>วิดีโอ: แนะนำร้านและทีมงาน</figcaption></figure>
-  <figure class="work" data-c="ads"><div class="shot a2"><b>ทักแชทรับส่วนลดทันที</b><span>โฆษณาเก็บลูกค้าทักแชท</span></div><figcaption>โฆษณา: แคมเปญเก็บลูกค้าทักแชท</figcaption></figure>
+  <figure class="work" data-c="graphic"><img src="web/pic/pot1.jpg" alt="ผลงานกราฟิก 1" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 1</figcaption></figure>
+  <figure class="work" data-c="graphic"><img src="web/pic/pot2.jpg" alt="ผลงานกราฟิก 2" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 2</figcaption></figure>
+  <figure class="work" data-c="graphic"><img src="web/pic/pot3.jpg" alt="ผลงานกราฟิก 3" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 3</figcaption></figure>
+  <figure class="work" data-c="video"><video src="web/video/vpot1.mp4#t=0.1" controls playsinline preload="metadata"></video><figcaption>วิดีโอ: ผลงาน 1</figcaption></figure>
  </div>
- <p class="note"><!-- TODO: เปลี่ยนเป็นผลงานจริง: ใส่ style="background-image:url(works/1.jpg)" ให้ div.shot แล้วลบข้อความในกรอบออก --> ภาพด้านบนเป็นตัวอย่างรูปแบบงาน ขอดูผลงานจริงของสายธุรกิจที่คุณสนใจได้ทางแชท</p>
+ <p class="note">กดที่ภาพเพื่อดูขนาดใหญ่ ขอดูผลงานเพิ่มเติมของสายธุรกิจที่คุณสนใจได้ทางแชท</p>
+ <dialog id="lb" aria-label="ดูภาพขยาย"><img alt=""><button type="button" aria-label="ปิด">&times;</button></dialog>
 </div></section>
 
 <section class="pricing" id="pricing"><div class="wrap">
@@ -297,6 +304,11 @@ document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('clic
  const f=b.dataset.f;
  document.querySelectorAll('.work').forEach(w=>w.hidden=!(f==='all'||w.dataset.c===f));
 }));
+</script>
+<script>
+const lb=document.getElementById('lb');
+document.querySelectorAll('.work img').forEach(i=>i.addEventListener('click',()=>{lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;lb.showModal()}));
+lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='BUTTON')lb.close()});
 </script>
 </body>
 </html>
