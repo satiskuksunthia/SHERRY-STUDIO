@@ -159,6 +159,26 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-si
 #lb::backdrop{background:rgba(23,18,20,.82)}
 #lb img{display:block;max-width:94vw;max-height:88vh;border-radius:6px}
 #lb button{position:absolute;top:-14px;right:-6px;width:38px;height:38px;border-radius:50%;border:0;background:#fff;color:var(--red);font-size:24px;line-height:1;cursor:pointer}
+
+.showcase{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:24px;align-items:start;margin-top:30px}
+.slider{position:relative;overflow:hidden;border-radius:6px;background:var(--tint);border:1px solid var(--line)}
+.track{display:flex;transition:transform .7s cubic-bezier(.6,0,.2,1)}
+.slide{position:relative;flex:0 0 100%;margin:0;display:flex;flex-direction:column;align-items:center;padding:18px 18px 64px}
+.slide img{display:block;width:auto;height:auto;max-width:100%;max-height:min(66vh,560px);border-radius:4px;box-shadow:0 14px 34px -18px rgba(23,18,20,.55)}
+.slide figcaption{position:absolute;left:0;right:0;bottom:26px;text-align:center;font-size:14px;color:var(--mute)}
+.nav{position:absolute;top:calc(50% - 27px);width:42px;height:42px;border-radius:50%;border:0;background:rgba(255,255,255,.92);color:var(--red);font-size:28px;line-height:1;cursor:pointer;box-shadow:0 4px 14px -6px rgba(0,0,0,.4)}
+.nav.prev{left:12px}.nav.next{right:12px}
+.dots{position:absolute;left:0;right:0;bottom:10px;display:flex;justify-content:center;gap:8px}
+.dots button{width:9px;height:9px;padding:0;border-radius:50%;border:0;background:#cdb9bb;cursor:pointer}
+.dots button[aria-current=true]{background:var(--red);width:24px;border-radius:6px}
+.vid{margin:0}
+.vid video{max-height:600px}
+@media(max-width:860px){.showcase{grid-template-columns:1fr}.slide img{max-height:min(60vh,460px)}}
+@media(prefers-reduced-motion:reduce){.track{transition:none}}
+
+.slide video{display:block;width:auto;height:auto;max-width:100%;max-height:min(66vh,560px);border-radius:4px;background:var(--ink);box-shadow:0 14px 34px -18px rgba(23,18,20,.55)}
+.nav[hidden],.dots[hidden]{display:none}
+@media(max-width:860px){.slide video{max-height:min(60vh,460px)}}
 </style>
 </head>
 <body>
@@ -197,20 +217,28 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-si
 
 <section id="works"><div class="wrap">
  <h2>ตัวอย่างผลงาน</h2>
- <p class="lead">ภาพกราฟิก วิดีโอสั้น และโฆษณาที่เราทำให้ธุรกิจหลากหลายประเภท</p>
- <div class="filters" role="group" aria-label="กรองผลงาน">
-  <button aria-pressed="true" data-f="all">ทั้งหมด</button>
-  <button aria-pressed="false" data-f="graphic">กราฟิก</button>
-  <button aria-pressed="false" data-f="video">วิดีโอ</button>
+ <p class="lead">ภาพกราฟิกและวิดีโอสั้นที่เราทำให้ธุรกิจหลากหลายประเภท</p>
+ <div class="showcase">
+  <div class="slider" role="region" aria-roledescription="carousel" aria-label="ผลงานกราฟิก" tabindex="0">
+   <div class="track">
+    <figure class="slide"><img src="web/pic/pot1.jpg" alt="ผลงานกราฟิก 1" decoding="async"><figcaption>กราฟิก: ผลงาน 1</figcaption></figure>
+    <figure class="slide"><img src="web/pic/pot2.jpg" alt="ผลงานกราฟิก 2" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 2</figcaption></figure>
+    <figure class="slide"><img src="web/pic/pot3.jpg" alt="ผลงานกราฟิก 3" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 3</figcaption></figure>
+   </div>
+   <button class="nav prev" type="button" aria-label="ภาพก่อนหน้า">&#8249;</button>
+   <button class="nav next" type="button" aria-label="ภาพถัดไป">&#8250;</button>
+   <div class="dots" role="group" aria-label="เลือกภาพ"></div>
+  </div>
+  <div class="slider video" role="region" aria-roledescription="carousel" aria-label="ผลงานวิดีโอ" tabindex="0">
+   <div class="track">
+    <figure class="slide"><video src="web/video/vpot1.mp4#t=0.1" controls playsinline preload="metadata"></video><figcaption>วิดีโอ: ผลงาน 1</figcaption></figure>
+   </div>
+   <button class="nav prev" type="button" aria-label="วิดีโอก่อนหน้า">&#8249;</button>
+   <button class="nav next" type="button" aria-label="วิดีโอถัดไป">&#8250;</button>
+   <div class="dots" role="group" aria-label="เลือกวิดีโอ"></div>
+  </div>
  </div>
- <div class="works">
-  <figure class="work" data-c="graphic"><img src="web/pic/pot1.jpg" alt="ผลงานกราฟิก 1" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 1</figcaption></figure>
-  <figure class="work" data-c="graphic"><img src="web/pic/pot2.jpg" alt="ผลงานกราฟิก 2" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 2</figcaption></figure>
-  <figure class="work" data-c="graphic"><img src="web/pic/pot3.jpg" alt="ผลงานกราฟิก 3" loading="lazy" decoding="async"><figcaption>กราฟิก: ผลงาน 3</figcaption></figure>
-  <figure class="work" data-c="video"><video src="web/video/vpot1.mp4#t=0.1" controls playsinline preload="metadata"></video><figcaption>วิดีโอ: ผลงาน 1</figcaption></figure>
- </div>
- <p class="note">กดที่ภาพเพื่อดูขนาดใหญ่ ขอดูผลงานเพิ่มเติมของสายธุรกิจที่คุณสนใจได้ทางแชท</p>
- <dialog id="lb" aria-label="ดูภาพขยาย"><img alt=""><button type="button" aria-label="ปิด">&times;</button></dialog>
+ <p class="note">ขอดูผลงานเพิ่มเติมของสายธุรกิจที่คุณสนใจได้ทางแชท</p>
 </div></section>
 
 <section class="pricing" id="pricing"><div class="wrap">
@@ -299,16 +327,27 @@ footer{border-top:1px solid var(--line);padding:26px 0;text-align:center;font-si
 
 <footer>© 2026 Sherry Studio. Digital Marketing &amp; Creative</footer>
 <script>
-document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{
- document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));
- const f=b.dataset.f;
- document.querySelectorAll('.work').forEach(w=>w.hidden=!(f==='all'||w.dataset.c===f));
-}));
-</script>
-<script>
-const lb=document.getElementById('lb');
-document.querySelectorAll('.work img').forEach(i=>i.addEventListener('click',()=>{lb.querySelector('img').src=i.src;lb.querySelector('img').alt=i.alt;lb.showModal()}));
-lb.addEventListener('click',e=>{if(e.target===lb||e.target.tagName==='BUTTON')lb.close()});
+document.querySelectorAll('.slider').forEach(sl=>{
+ const track=sl.querySelector('.track'),n=track.children.length,dots=sl.querySelector('.dots'),isVid=sl.classList.contains('video');
+ let i=0,timer=null,x0=null;
+ const reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+ if(n<2){sl.querySelectorAll('.nav,.dots').forEach(e=>e.hidden=true)}
+ for(let k=0;k<n&&n>1;k++){const b=document.createElement('button');b.type='button';b.setAttribute('aria-label','ลำดับที่ '+(k+1));b.onclick=()=>{go(k);restart()};dots.appendChild(b)}
+ function go(k){i=(k+n)%n;track.style.transform='translateX('+(-100*i)+'%)';[...dots.children].forEach((d,j)=>d.setAttribute('aria-current',j===i));sl.querySelectorAll('video').forEach(v=>v.pause())}
+ function start(){if(!isVid&&n>1&&!reduce&&!timer)timer=setInterval(()=>go(i+1),4500)}
+ function stop(){clearInterval(timer);timer=null}
+ function restart(){stop();start()}
+ sl.querySelector('.prev').onclick=()=>{go(i-1);restart()};
+ sl.querySelector('.next').onclick=()=>{go(i+1);restart()};
+ sl.addEventListener('mouseenter',stop);sl.addEventListener('mouseleave',start);
+ sl.addEventListener('focusin',stop);sl.addEventListener('focusout',start);
+ sl.addEventListener('keydown',e=>{if(e.target.tagName==='VIDEO')return;if(e.key==='ArrowLeft')go(i-1);if(e.key==='ArrowRight')go(i+1)});
+ sl.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;stop()},{passive:true});
+ sl.addEventListener('touchend',e=>{if(x0!==null&&!isVid){const d=e.changedTouches[0].clientX-x0;if(Math.abs(d)>40)go(i+(d<0?1:-1))}x0=null;start()});
+ sl.querySelectorAll('video').forEach(v=>v.addEventListener('ended',()=>{if(n>1)go(i+1)}));
+ document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+ go(0);start();
+});
 </script>
 </body>
 </html>
